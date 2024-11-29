@@ -12,13 +12,13 @@ let numerosfacturas = prompt(
   "Favor ingresar cuantos documentos vas a analizar (ej 10)"
 );
 
-let factura = prompt("Ingresa el importe del documento");
-if (factura > 10000) {
-  alert("Factura " + factura + ": Retener.");
-} else if (factura > 2000) {
-  alert("Factura " + factura + ": Informar.");
-} else {
-  alert("Factura " + factura + ": No requiere acción.");
+for (let i = 0; i < numerosfacturas; i++) {
+  let factura = prompt("Ingresa el importe del documento");
+  if (factura > importe_techo) {
+    alert("Factura " + factura + ": Retener.");
+  } else if (factura > importe_piso) {
+    alert("Factura " + factura + ": Informar.");
+  } else {
+    alert("Factura " + factura + ": No requiere acción.");
+  }
 }
-
-alert("el importe ingresado fue " + factura1);
