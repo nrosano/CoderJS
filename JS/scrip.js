@@ -14,11 +14,11 @@ let numerosfacturas = prompt(
 
 for (let i = 0; i < numerosfacturas; i++) {
   let factura = prompt("Ingresa el importe del documento");
-  if (factura > importe_techo) {
-    alert("Factura " + factura + ": Retener.");
-  } else if (factura > importe_piso) {
-    alert("Factura " + factura + ": Informar.");
+  if (factura >= importe_techo) {
+    alert("Factura importe " + factura + ": Retener " + factura* 0.07);
+  } else if (factura >= importe_piso) {
+    alert("Factura importe " + factura + ": Informar " + factura);
   } else {
-    alert("Factura " + factura + ": No requiere acción.");
+    alert("Factura importe " + factura + ": No requiere acción");
   }
 }
