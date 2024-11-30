@@ -10,29 +10,34 @@ alert(
 );
 
 // Solicitar el número de facturas
-let numerosfacturas = parseInt(
-  prompt("Favor ingresar cuántos documentos vas a analizar (Ejemplo: 5)")
-);
-
-// Validar que sea número
-if (!isNaN(numerosfacturas) && numerosfacturas > 0) {
-  for (let i = 0; i < numerosfacturas; i++) {
-    let factura = parseFloat(prompt("Ingresa el importe del documento"));
-
-    // Validar que el importe sea un número
-    if (!isNaN(factura)) {
-      if (factura >= importe_techo) {
-        alert("Factura importe " + factura + ": Retener " + factura * 0.07);
-      } else if (factura >= importe_piso) {
-        alert("Factura importe " + factura + ": Informar " + factura);
-      } else {
-        alert("Factura importe " + factura + ": No requiere acción");
-      }
-    } else {
-      alert("El importe ingresado no es válido. Por favor, ingresa un número.");
-      i--; // Volver a pedir la misma factura
-    }
+let numerosfacturas;
+while (true) {
+  numerosfacturas = parseInt(
+    prompt("Favor ingresar cuántos documentos vas a analizar.(Ejemplo: 5)")
+  );
+  if (!isNaN(numerosfacturas) && numerosfacturas > 0) {
+    break;
+  } else {
+    alert("Ingresa un numero valido mayor a 0.(Ejemplo: 5)");
   }
-} else {
-  alert("No ingresaste un número válido. Por favor, intenta de nuevo.");
+}
+
+for (let i = 0; i < numerosfacturas; i++) {
+  let factura = parseFloat(prompt("Ingresa el importe del documento"));
+  if (!isNaN(factura)) {
+    if (factura >= importe_techo) {
+      alert(
+        "Factura importe " +
+          factura +
+          ": Retener " +
+          parseFloat((factura * 0.07).toFixed(2))
+      );
+    } else if (factura >= importe_piso) {
+      alert("Factura importe " + factura + ": Informar " + factura);
+    } else {
+      alert("Factura importe " + factura + ": No requiere acción");
+    }
+  } else {
+    alert("El importe ingresado no es válido. Por favor, ingresa un número.");
+  }
 }
