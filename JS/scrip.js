@@ -14,10 +14,9 @@ let numerosfacturas = parseInt(
   prompt("Favor ingresar cuántos documentos vas a analizar (Ejemplo: 5)")
 );
 
-// Validar que se haya ingresado un número válido
+// Validar que sea número
 if (!isNaN(numerosfacturas) && numerosfacturas > 0) {
   for (let i = 0; i < numerosfacturas; i++) {
-    // Solicitar el importe de cada factura
     let factura = parseFloat(prompt("Ingresa el importe del documento"));
 
     // Validar que el importe sea un número
